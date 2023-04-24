@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>Sorteador de Números Aleatórios</title>
+</head>
+
+<body>
+  <center>
+    
+  <h1>Sorteador de Números Aleatórios</h1>
+
+  <form>
+    
+    <label for="min">Valor mínimo:</label>
+    <input type="number" id="min" name="min">
+
+    <br><br>
+
+    <label for="max">Valor máximo:</label>
+    <input type="number" id="max" name="max">
+
+    <br><br>
+
+    <button type="button" onclick="sortear()">Sortear</button>
+
+  </form>
+
+  <h2 id="resultado"></h2>
+
+  <script>
+
+    function sortear() {
+
+      var min = parseInt(document.getElementById("min").value);
+      var max = parseInt(document.getElementById("max").value);
+
+      if (isNaN(min) || isNaN(max)) {
+
+        alert("Insira os valores numéricos.");
+        return;
+
+      }
+
+      if (min >= max) {
+
+        alert("O valor mínimo deve ser menor que o valor máximo.");
+        return;
+
+      }
+
+      var resultado = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      document.getElementById("resultado").innerHTML = "O número sorteado é: " + resultado;
+
+    }
+
+  </script>
+
+  </center>
+</body>
+</html>
